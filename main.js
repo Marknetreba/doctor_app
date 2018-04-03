@@ -16,12 +16,18 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600, icon: "assets/logo.png"});
 
+
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }));
+
+  const Menu = electron.Menu;
+  const menuTemplate = [];
+  const menu = Menu.buildFromTemplate(menuTemplate);
+  Menu.setApplicationMenu(menu);
 
   // Initialize electron-push-receiver component. Should be called before 'did-finish-load'
   setupPushReceiver(mainWindow.webContents);
