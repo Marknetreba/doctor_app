@@ -21,7 +21,8 @@
     "electron-builder": "^20.8.1"
   },
   "dependencies": {
-    "electron-push-receiver": "^1.2.4"
+    "electron-push-receiver": "^1.2.4",
+    "samba-client": "^2.0.0"
   },
   "build": {
     "appId": "your.id",
