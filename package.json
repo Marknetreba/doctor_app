@@ -14,7 +14,7 @@
     "FCM",
     "push messages"
   ],
-  "author": "CydeSwype",
+  "author": "Mark Netreba",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^1.8.4",
