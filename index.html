@@ -5,45 +5,12 @@
     <title>Кабинет врача</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photon/0.1.2-alpha/css/photon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photon/0.1.2-alpha/css/photon.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   </head>
   <body>
 
-    <div style="padding:50px; text-align:center;">
-      <button id="show" class="btn btn-default btn-large">Show Modal</button>
-      <pre id="value"></pre>
-    </div>
-
-    <dialog id="hello">
-      <header class="toolbar toolbar-header">
-        <h1 class="title">Hello!</h1>
-      </header>
-
-      <div style="padding:50px">
-        Imagine some great content here.
-      </div>
-
-      <footer class="toolbar toolbar-footer">
-        <div class="toolbar-actions">
-          <button id="cancel" class="btn btn-default">Cancel</button>
-          <button id="save" class="btn btn-primary pull-right">Save</button>
-        </div>
-      </footer>
-    </dialog>
-
     <script>
-        require('./renderer.js')
-        const $ = require("jquery");
-
-        // this is just the HTML5 <dialog> API :)
-
-        $('#show').onclick = () => $('#hello').showModal();
-        $('#cancel').onclick = () => $('#hello').close(false);
-        $('#save').onclick = () => $('#hello').close(true);
-
-        // "close" event fires on close
-        // <dialog>.returnValue is just what was passed to .close()
-        $('#hello').onclose = e => $('#value').textContent = e.target.returnValue;
+      require('./renderer.js')
+      
     </script>
   </body>
 </html>
