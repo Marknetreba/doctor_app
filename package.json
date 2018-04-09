@@ -18,10 +18,7 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^1.8.4",
-    "electron-builder": "^20.8.1",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "react-hot-loader": "^4.0.1"
+    "electron-builder": "^20.8.1"
   },
   "dependencies": {
     "electron-push-receiver": "^1.2.4"
