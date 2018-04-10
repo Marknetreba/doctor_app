@@ -1,9 +1,11 @@
 {
   "name": "electron-fcm-demo",
   "version": "1.0.0",
-  "description": "A demo FCM client",
+  "description": "FCM client",
   "main": "main.js",
   "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
     "start": "electron ."
   },
   "repository": "https://github.com/CydeSwype/electron-fcm-demo",
@@ -12,12 +14,20 @@
     "FCM",
     "push messages"
   ],
-  "author": "CydeSwype",
+  "author": "Mark Netreba",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^1.8.4"
+    "electron": "^1.8.4",
+    "electron-builder": "^20.8.1"
   },
   "dependencies": {
-    "electron-push-receiver": "^1.2.4"
+    "electron-push-receiver": "^1.2.4",
+    "samba-client": "^2.0.0"
+  },
+  "build": {
+    "appId": "your.id",
+    "mac": {
+      "category": "your.app.category.type"
+    }
   }
 }
