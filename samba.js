@@ -1,7 +1,7 @@
 const SambaClient = require("samba-client");
 
 const path = '//192.168.10.8/WEBAPPS';
-const destination = 'rtsp';
+const destination = '';
 
 const client = new SambaClient({
     address: path,
@@ -9,6 +9,6 @@ const client = new SambaClient({
     password: '1314ctmw6e'
 });
 
-client.getFile(path, destination, function (err) {
+client.getFile('\\*', '\\*',function (err) {
     console.log(err)
 });
