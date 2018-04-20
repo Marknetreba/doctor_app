@@ -14,33 +14,38 @@
   </head>
   
   <body>
-  
-      <div class="ui basic segment">
-          <div class="ui top attached tabular menu">
-                          <a class="item active teal" data-tab="first">Расписание</a>
-          </div>
-        
-          <div class="ui bottom attached tab segment active" data-tab="first">
-                          <table class="ui celled table">
-                              <thead>
-                              <tr>
-                                  <th>ФИО пациента</th>
-                                  <th>Время приема</th>
-                                  <th>Фото</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <td>Иванов Иван Иванович</td>
-                                  <td>21.05.1994</td>
-                                  <td>Фото</td>
-                              </tr>
-                              </tbody>
-                          </table>
-                      </div>
-        
+  <div class="ui container">
+      <div class="ui secondary orange inverted very padded segment" style="border-radius: 20px; position: relative; top: 20px; margin-bottom: 50px">
+          <h2 class="ui center aligned icon header">
+              <i class="circular heartbeat icon"></i>
+              Расписание
+          </h2>
+
+          <table class="ui celled table">
+              <thead>
+              <tr>
+                  <th>ФИО пациента</th>
+                  <th>Время приема</th>
+                  <th>Фото</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <td>Иванов Иван Иванович</td>
+                  <td>21.05.1994</td>
+                  <td>Фото</td>
+              </tr>
+              <tr>
+                  <td>Иванов Иван Иванович</td>
+                  <td>21.05.1994</td>
+                  <td>Фото</td>
+              </tr>
+              </tbody>
+          </table>
       </div>
-      <button class="ui primary button" style="position: absolute; bottom: 0; width: 100%">
+  </div>
+
+      <button class="ui primary button" style="position: fixed; bottom: 0; width: 100%">
           Выйти
       </button>
   </body>
