@@ -3,6 +3,8 @@
 // All of the Node.js APIs are available in this process.
 
 const { ipcRenderer } = require ('electron');
+const axios = require('axios');
+
 const {
   START_NOTIFICATION_SERVICE,
   NOTIFICATION_SERVICE_STARTED,
@@ -13,7 +15,16 @@ const {
 
 // Listen for service successfully started
 ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
-  console.log('service successfully started', token)
+  console.log('Service started -> ', token);
+  
+    axios.post('https://iid.googleapis.com/iid/v1/REGISTRATION/rel/topics/55_55',{}, {
+      headers: {
+          "Content-Type" : "application/json",
+          "Authorization" : "key="+token
+      }
+    }).then(function (response) {
+        console.log(response)
+    })
 });
 
 // Handle notification errors

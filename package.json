@@ -21,7 +21,10 @@
     "electron-builder": "^20.9.2"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "electron-push-receiver": "^1.2.4",
+    "firebase": "^4.13.1",
+    "firebase-messaging": "^1.0.6",
     "samba-client": "^2.0.0",
     "semantic-ui": "^2.3.1"
   },
