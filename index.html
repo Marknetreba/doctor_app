@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -7,13 +8,15 @@
 
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <script src="semantic/dist/semantic.min.js"></script>
-      
-    <script>
-        const webFrame = require('electron').webFrame;
-        webFrame.registerURLSchemeAsPrivileged('file', { bypassCSP: true });
+
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+
+      <script>
+          require('electron').webFrame.registerURLSchemeAsPrivileged('file', { bypassCSP: true });
     </script>
       
-    <link rel="import" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
+
   </head>
   
   <body>
@@ -54,41 +57,4 @@
           .tab();
       
   </script>
-  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-  <script>
-      // Initialize Firebase
-      var config = {
-          apiKey: "AIzaSyA6dkZsqREfubEGyxN4yAEyf2P6np_RP6Y",
-          authDomain: "infoterminal-7973d.firebaseapp.com",
-          databaseURL: "https://infoterminal-7973d.firebaseio.com",
-          projectId: "infoterminal-7973d",
-          storageBucket: "",
-          messagingSenderId: "498398049541"
-      };
-      firebase.initializeApp(config);
-  </script>
-  
-  <script>
-      const messaging = firebase.messaging();
-      
-      if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function() {
-              navigator.serviceWorker.register('firebase-messaging-sw.js').then(function(registration) {
-                  messaging.useServiceWorker(registration);
-                  console.log('ServiceWorker registration successful with scope: ', registration.scope);
-              }, function(err) {
-                  console.log('ServiceWorker registration failed: ', err);
-              });
-          });
-      }
-      messaging.requestPermission()
-          .then(function() {
-              console.log('Notification permission granted.');
-              // console.log(messaging.getToken());
-              // return messaging.getToken();
-          })
-          .catch(function(err) {
-              console.log('Unable to get permission to notify.', err);
-          });
-    </script>
 </html>

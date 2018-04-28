@@ -24,8 +24,8 @@
     "axios": "^0.18.0",
     "electron-push-receiver": "^1.2.4",
     "firebase": "^4.13.1",
+    "firebase-admin": "^5.12.0",
     "firebase-messaging": "^1.0.6",
-    "samba-client": "^2.0.0",
     "semantic-ui": "^2.3.1"
   },
   "build": {
