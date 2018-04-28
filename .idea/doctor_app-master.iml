@@ -9,7 +9,8 @@
     <orderEntry type="library" name="jquery-3.3.1" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
-    <orderEntry type="library" name="firebase" level="application" />
-    <orderEntry type="library" name="firebase-messaging" level="application" />
+    <orderEntry type="library" exported="" name="firebase" level="application" />
+    <orderEntry type="library" exported="" name="firebase-messaging" level="application" />
+    <orderEntry type="library" name="firebase-app" level="application" />
   </component>
 </module>
