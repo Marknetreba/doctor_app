@@ -17,14 +17,14 @@ const {
 ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
   console.log('Service started -> ', token);
   
-    axios.post('https://iid.googleapis.com/iid/v1/REGISTRATION/rel/topics/55_55',{}, {
-      headers: {
-          "Content-Type" : "application/json",
-          "Authorization" : "key="+token
-      }
-    }).then(function (response) {
-        console.log(response)
-    })
+    // axios.post('https://iid.googleapis.com/iid/v1/REGISTRATION/rel/topics/55_55',{}, {
+    //   headers: {
+    //       "Content-Type" : "application/json",
+    //       "Authorization" : "key="+token
+    //   }
+    // }).then(function (response) {
+    //     console.log(response)
+    // })
 });
 
 // Handle notification errors
