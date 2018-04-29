@@ -6,7 +6,7 @@ const { ipcRenderer } = require ('electron');
 const axios = require('axios');
 const admin = require("firebase-admin");
 const firebase = require("firebase");
-const topics = require('topics');
+const topics = require("./topics");
 
 const config = {
     apiKey: "AIzaSyA6dkZsqREfubEGyxN4yAEyf2P6np_RP6Y",
@@ -44,7 +44,7 @@ ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
 
     const auth = "AAAAdArWtQU:APA91bEBGdgYLIUuX0_9H7MITtswX8Eu4YYMfNDUoVMfInHz0ueCtIL1JBtPRRbzievC3JhLApscOsx7zhpSNkxkJ5He8QjnXJFB5MQ6tQuhjv2zW6jUqhmBLuT7QYs0brG_73vJt5iT";
 
-    axios.post('https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/55',{}, {
+    axios.post('https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/'+topics["chname"],{}, {
       headers: {
           "Content-Type" : "application/json",
           "Authorization" : "key="+auth
@@ -65,15 +65,25 @@ ipcRenderer.on(TOKEN_UPDATED, (_, token) => {
 });
 
 // Display notification
-ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
+ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotification) => {
+    let table = document.getElementById("pacients");
+
   // check to see if payload contains a body string, if it doesn't consider it a silent push
-  if (serverNotificationPayload.notification.body){
-    // payload has a body, so show it to the user
-    console.log('display notification', serverNotificationPayload);
-    let myNotification = new Notification(serverNotificationPayload.notification.title, {
-      body: serverNotificationPayload.notification.body
+  if (serverNotification.notification.body){
+    console.log('display notification', serverNotification);
+    let myNotification = new Notification(serverNotification.notification.title, {
+      body: serverNotification.notification.body
     });
-    
+
+    let row = table.insertRow(table.rows.length);
+      let cell1 = row.insertCell(0);
+      let cell2 = row.insertCell(1);
+      let cell3 = row.insertCell(2);
+
+      cell1.innerHTML = serverNotification.data.name;
+      cell2.innerHTML = serverNotification.data.time;
+      cell3.innerHTML = '<a href="'+serverNotification.data.photo+'">Фото</a>';
+
     myNotification.onclick = () => {
       console.log('Notification clicked')
     }  
