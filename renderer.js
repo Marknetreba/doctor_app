@@ -4,7 +4,6 @@
 
 const { ipcRenderer } = require ('electron');
 const axios = require('axios');
-const admin = require("firebase-admin");
 const firebase = require("firebase");
 const topics = require("./topics");
 
@@ -18,12 +17,6 @@ const config = {
 };
 firebase.initializeApp(config);
 
-
-admin.initializeApp({
-    credential: admin.credential.cert("infoterminal-admin-key.json"),
-    databaseURL: "https://infoterminal-7973d.firebaseio.com"
-});
-
 const {
   START_NOTIFICATION_SERVICE,
   NOTIFICATION_SERVICE_STARTED,
@@ -35,12 +28,6 @@ const {
 // Listen for service successfully started
 ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
   console.log('Service started -> ', token);
-
-    // admin.messaging().subscribeToTopic(token, "news").then(function (response) {
-    //         console.log("Successfully subscribed to topic:", response);
-    //     }).catch(function (error) {
-    //         console.log("Error subscribing to topic:", error);
-    //     });
 
     const auth = "AAAAdArWtQU:APA91bEBGdgYLIUuX0_9H7MITtswX8Eu4YYMfNDUoVMfInHz0ueCtIL1JBtPRRbzievC3JhLApscOsx7zhpSNkxkJ5He8QjnXJFB5MQ6tQuhjv2zW6jUqhmBLuT7QYs0brG_73vJt5iT";
 
@@ -89,7 +76,7 @@ ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotification) => {
     }  
   } else {
     // payload has no body, so consider it silent (and just consider the data portion)
-    console.log('do something with the key/value pairs in the data', serverNotificationPayload.data)
+    console.log('do something with the key/value pairs in the data', serverNotification.data)
   }
 });
 

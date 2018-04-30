@@ -1,5 +1,5 @@
 {
-  "name": "electron-fcm-demo",
+  "name": "DoctorApp",
   "version": "1.0.0",
   "description": "FCM client",
   "main": "main.js",
@@ -8,7 +8,6 @@
     "dist": "electron-builder",
     "start": "electron ."
   },
-  "repository": "https://github.com/CydeSwype/electron-fcm-demo",
   "keywords": [
     "Electron",
     "FCM",
