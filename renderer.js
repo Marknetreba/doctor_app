@@ -6,6 +6,9 @@ const { ipcRenderer } = require ('electron');
 const axios = require('axios');
 const firebase = require("firebase");
 const topics = require("./topics");
+const electron = require('electron');
+const BrowserWindow = electron.BrowserWindow;
+
 
 const config = {
     apiKey: "AIzaSyA6dkZsqREfubEGyxN4yAEyf2P6np_RP6Y",
@@ -69,7 +72,12 @@ ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotification) => {
 
       cell1.innerHTML = serverNotification.data.name;
       cell2.innerHTML = serverNotification.data.time;
-      cell3.innerHTML = '<a href="'+serverNotification.data.photo+'">Фото</a>';
+      cell3.innerHTML = '<a href="'+serverNotification.data.photo+'" target="_blank">Фото</a>';
+
+      // cell3.addEventListener("click", function click(e) {
+      //     console.log();
+      //     e.preventDefault();
+      // });
 
     myNotification.onclick = () => {
       console.log('Notification clicked')

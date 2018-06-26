@@ -43,7 +43,7 @@
       </div>
   </div>
 
-      <button class="ui primary button" style="position: fixed; bottom: 0; width: 100%">
+      <button id="butt" onclick="exit()" class="ui primary button" style="position: fixed; bottom: 0; width: 100%">
           Выйти
       </button>
   </body>
@@ -52,6 +52,10 @@
 
       $('.menu .item')
           .tab();
-      
+
+      function exit() {
+          console.log("Exit");
+          this.close()
+      }
   </script>
 </html>
